@@ -120,7 +120,28 @@ namespace Examples {
         event.StopPropagation();
       });
 
-      this->SetMinSize(wxSize(100,100));
+wxBoxSizer *sizer = new wxBoxSizer(wxVERTICAL);
+sizer->Add(new wxButton(this, -1, "A Really Really Big Button"), 0, 0, 0);
+sizer->Add(new wxButton(this, -1, "Tiny Button"), 0, 0, 0);
+sizer->SetSizeHints(this);
+SetSizer(sizer);
+
+//      wxBoxSizer *sizer = new wxBoxSizer(wxVERTICAL);
+ //     wxWindow *interiorWindow = new wxWindow();
+  //    interiorWindow->SetMinSize(wxSize(100,100));
+//      sizer->Add(interiorWindow, 0, wxEXPAND);
+  //    sizer->SetMinSize(wxSize(100,100));
+
+//      this->SetAutoLayout (true);
+ //     this->SetSizer (sizer);
+//      sizer->Fit(this);
+
+
+
+//	this->SetAutoLayout( true );     // tell dialog to use sizer
+//    this->SetSizer( _topsizer );      // actually set the sizer
+//	_topsizer->Fit( this );            // set size to minimum size as calculated by the sizer
+//	_topsizer->SetSizeHints( this );   // set size hints to honour mininum size
     }
 
   private:
