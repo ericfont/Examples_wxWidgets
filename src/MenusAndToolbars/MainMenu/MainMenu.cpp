@@ -119,6 +119,8 @@ namespace Examples {
         listBox1->Append(names.find(event.GetId()) != names.end() ? names[event.GetId()] : "Unknown");
         event.StopPropagation();
       });
+
+      this->SetMinSize(wxSize(100,100));
     }
 
   private:
