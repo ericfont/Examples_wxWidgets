@@ -3,7 +3,9 @@
 namespace Examples {
   class Application : public wxApp {
     bool OnInit() override {
-      (new wxFrame(nullptr, wxID_ANY, wxEmptyString))->Show();
+      wxFrame *_frame = new wxFrame(nullptr, wxID_ANY, wxEmptyString);
+      _frame->SetMinSize( wxSize(100, 100) );
+      _frame->Show();
       return true;
     }
   };

@@ -120,11 +120,17 @@ namespace Examples {
         event.StopPropagation();
       });
 
+      wxPanel *panel = new wxPanel(this);
 wxBoxSizer *sizer = new wxBoxSizer(wxVERTICAL);
-sizer->Add(new wxButton(this, -1, "A Really Really Big Button"), 0, 0, 0);
-sizer->Add(new wxButton(this, -1, "Tiny Button"), 0, 0, 0);
-sizer->SetSizeHints(this);
-SetSizer(sizer);
+sizer->Add(new wxButton(panel, -1, "A Really Really Big Button"), 0, 0, 0);
+sizer->Add(new wxButton(panel, -1, "Tiny Button"), 0, 0, 0);
+wxSize minsize = sizer->GetMinSize();
+printf( "\n%dx%d\n\n", minsize.GetHeight(), minsize.GetWidth());
+//sizer->SetMinSize( minsize );   // set size hints to honour mininum size
+sizer->SetSizeHints(panel);
+panel->SetSizer(sizer);
+this->SetSizeHints(sizer->GetMinSize());
+
 
 //      wxBoxSizer *sizer = new wxBoxSizer(wxVERTICAL);
  //     wxWindow *interiorWindow = new wxWindow();
