@@ -46,7 +46,12 @@ enum wxOwnedID {
       panelMain->SetSizerAndFit(boxSizerMain);
       panelMain->SetVirtualSize(boxSizerMain->GetSize());
 
-      SetMinSize(minsize);
+      wxSize best = mainMenu->GetBestSize();
+      wxSize maxclientsize = mainMenu->GetMaxClientSize();
+      wxSize clientsize = mainMenu->GetClientSize();
+      printf( "%d, %d, %d, %d, %d, %d, %d, %d\n\n", minsize.GetHeight(), mainMenu->GetClientSize().GetHeight(), mainMenu->GetMaxSize().GetHeight(), mainMenu->GetMinHeight(), mainMenu->GetMaxHeight(), best.GetHeight(), clientsize.GetHeight(), maxclientsize.GetHeight());
+   //   minsize.IncBy(0, mainMenu->GetMaxSize().GetHeight());
+      SetMinClientSize(minsize);
     }
     
   private:
